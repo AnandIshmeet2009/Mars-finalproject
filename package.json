@@ -18,8 +18,15 @@
   },
   "homepage": "https://github.com/AnandIshmeet2009/Mars-finalproject#readme",
   "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "mongoose": "^6.5.2",
+    "query-string": "^7.1.1",
+    "url-parse": "^1.5.10"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.19"
   }
 }
