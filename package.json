@@ -1,0 +1,25 @@
+{
+  "name": "mars-finalproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnandIshmeet2009/Mars-finalproject.git"
+  },
+  "author": "ishmeet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnandIshmeet2009/Mars-finalproject/issues"
+  },
+  "homepage": "https://github.com/AnandIshmeet2009/Mars-finalproject#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
