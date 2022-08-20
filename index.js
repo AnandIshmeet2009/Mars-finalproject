@@ -1,15 +1,14 @@
-const express = require('express');
+const express = require('express'); //link express to the file
 const app = express();
 const mongoose = require('mongoose'); //import mongoose
-const authRoute = require('./routes/auth');
-const dataRoute = require('./routes/Data');
+const authRoute = require('./routes/auth');  //authfile line
 require('dotenv').config(); //import dotenv
 
-app.use(express.static(__dirname + '/public'));
-app.set('view engine', 'ejs')
+app.use(express.static(__dirname + '/public')); //link to public folder
+app.set('view engine', 'ejs')   //set view engine to ejs
 
 //DB connect
-mongoose.connect(process.env.DB_URI, 
+mongoose.connect(process.env.DB_URI,  
 { useNewUrlParser: true, 
 useUnifiedTopology : true 
 }).then(() => console.log('DB connected!'))
@@ -17,14 +16,12 @@ useUnifiedTopology : true
 
 //Routes
 app.use('/auth', authRoute);
-// app.use('/register', registerRoute);
-// app.use('/about', aboutRoute);
 
 app.get('/', (req, res) =>{
      res.render('hello'); 
 })
 
-app.get('/about', (req, res) =>{
+app.get('/about', (req, res) =>{ 
     res.render('about');
 })
 
