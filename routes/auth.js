@@ -3,6 +3,7 @@ const axios = require('axios');
 const urlParse = require('url-parse');
 const qs = require('query-string');
 const User = require('../models/User');
+const register = require('./register');
 require('dotenv').config()
 
 const redirectUri = process.env.REDIRECT_URI
@@ -46,6 +47,10 @@ router.get('/register', (req, res) => {
     res.redirect(getGoogleAuthURL())
 })
 
+router.get('/register', (req, res) => {
+    res.render('register.ejs')
+})
+
 router.get('/callback', async (req, res) => {
     const queryUrl = new urlParse(req.url)
     const code = qs.parse(queryUrl.query).code
@@ -71,7 +76,7 @@ router.get('/callback', async (req, res) => {
     if (doc) {
         //login
         req.session.user = doc
-        res.redirect('/home')
+        res.redirect('/register')
     } else {
         //register
 
@@ -82,7 +87,7 @@ router.get('/callback', async (req, res) => {
         newUser.save()
             .then((resp) => {
                 req.session.user = resp
-                res.redirect('/home')
+                res.redirect('/register')
             })
             .catch(err => console.log(err))
     }

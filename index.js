@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose'); //import mongoose
 const session = require('express-session'); //import session
 const authRoute = require('./routes/auth');  //authfile line
-const homeRoute = require('./routes/home'); //homefile linek
+const registerRoute = require('./routes/register'); //homefile linek
 require('dotenv').config(); //import dotenv
 
 
@@ -27,10 +27,12 @@ app.use(
         resave : false
     })
 )
+app.use(express.urlencoded({ extended: true })); //link to express-urlencoded
+app.use(express.json());
 
 //Routes
 app.use('/auth', authRoute);
-app.use ('/home', homeRoute);
+app.use ('/register', registerRoute);
 
 
 app.get('/', (req, res) =>{
@@ -39,6 +41,10 @@ app.get('/', (req, res) =>{
 
 app.get('/about', (req, res) =>{ 
     res.render('about');
+})
+
+app.get('/register', (req, res) =>{ 
+    res.render('register');
 })
 
 const PORT = process.env.PORT || 3000;  // || = OR, && = AND
