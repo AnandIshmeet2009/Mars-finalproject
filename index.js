@@ -16,6 +16,7 @@ useUnifiedTopology : true
 
 //Middlewares
 app.use(express.static(__dirname + '/public')); //link to public folder
+app.set('views', (__dirname + '/views')) //vercel fix 
 app.set('view engine', 'ejs') 
 app.use(
     session({
